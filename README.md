@@ -54,10 +54,15 @@ MIT License http://opensource.org/licenses/MIT
 	
 	== add a failed login attempt ==
 	$BFBresponse = BruteForceBlocker::addFailedLoginAttempt($user_id, $ip_address);
+	if($BFBresponse !== true){
+		//get error
+		$error_message = $BFBresponse;
+	}
 	
 	== clear the database ==
 	$BFBresponse = BruteForceBlocker::clearDatabase();
 	if($BFBresponse !== true){
+		//get error
 		$error_message = $BFBresponse;
 	}
  
