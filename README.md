@@ -4,7 +4,7 @@ BruteForceBlocker
 Automatic brute force attack prevention class with PHP. Stores all failed login attempts site-wide in a database and compares the
 number of recent failed attempts against a set threshold. Responds with time delay between login requests and/or captcha requirement.
 
-Implementation by Evan Francis for use in AlpineAuth library, 2014. 
+Implementation by Evan Francis for use in [AlpineAuth](https://github.com/ejfrancis/AlpineAuth) library, 2014. 
 Inspired by work of Corey Ballou, http://stackoverflow.com/questions/2090910/how-can-i-throttle-user-login-attempts-in-php.
 MIT License http://opensource.org/licenses/MIT
 
