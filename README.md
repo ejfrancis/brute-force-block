@@ -24,7 +24,15 @@ MIT License http://opensource.org/licenses/MIT
 	
 	==================== 	Usage	 ====================
     === get login status. use this when building your login form ==
- 	$BFBresponse = BruteForceBlocker::getLoginStatus();
+	//build throttle settings array. (# recent failed logins => response). if this 
+	$throttle_settings = [
+			50 => 2, 			//delay in seconds
+			150 => 4, 			//delay in seconds
+			300 => 'captcha'	//captcha
+	];
+	
+ 	$BFBresponse = BruteForceBlocker::getLoginStatus($throttle_settings);	
+	//$throttle_settings is an optional parameter. if it's not included, the default settings array in BruteForceBlocker.php will be used
 	switch ($BFBresponse['status']){
 		case 'safe':
 			//safe to login
@@ -42,6 +50,7 @@ MIT License http://opensource.org/licenses/MIT
 			break;
 		
 	}
+	
 	
 	== add a failed login attempt ==
 	$BFBresponse = BruteForceBlocker::addFailedLoginAttempt($user_id, $ip_address);
