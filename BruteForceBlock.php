@@ -1,6 +1,6 @@
 <?php
 /**
- * 				Brute Force Blocker class
+ * 				Brute Force Block class
  *
  * 	Implementation by Evan Francis for use in AlpineAuth library, 2014. 
  *  Inspired by work of Corey Ballou, http://stackoverflow.com/questions/2090910/how-can-i-throttle-user-login-attempts-in-php.
@@ -22,7 +22,7 @@
 	
 	==================== 	Usage	 ====================
     === get login status. use this when building your login form ==
- 	$BFBresponse = BruteForceBlocker::getLoginStatus();
+ 	$BFBresponse = BruteForceBlock::getLoginStatus();
 	switch ($BFBresponse['status']){
 		case 'safe':
 			//safe to login
@@ -42,16 +42,16 @@
 	}
 	
 	== add a failed login attempt ==
-	$BFBresponse = BruteForceBlocker::addFailedLoginAttempt($user_id, $ip_address);
+	$BFBresponse = BruteForceBlock::addFailedLoginAttempt($user_id, $ip_address);
 	
 	== clear the database ==
-	$BFBresponse = BruteForceBlocker::clearDatabase();
+	$BFBresponse = BruteForceBlock::clearDatabase();
 	if($BFBresponse !== true){
 		$error_message = $BFBresponse;
 	}
  */
-//brute force blocker
-class BruteForceBlocker {
+//brute force block
+class BruteForceBlock {
 	// array of throttle settings. # failed_attempts => response
 	private static $default_throttle_settings = [
 			50 => 2, 			//delay in seconds
@@ -91,7 +91,7 @@ class BruteForceBlocker {
 	//add a failed login attempt to database. returns true, or error 
 	public static function addFailedLoginAttempt($user_id, $ip_address){
 		//get db connection
-		$db = BruteForceBlocker::_databaseConnect();
+		$db = BruteForceBlock::_databaseConnect();
 		
 		//get current timestamp
 		$timestamp = date('Y-m-d H:i:s');
@@ -109,7 +109,7 @@ class BruteForceBlocker {
 	//get the current login status. either safe, delay, catpcha, or error
 	public static function getLoginStatus($options = null){
 		//get db connection
-		$db = BruteForceBlocker::_databaseConnect();
+		$db = BruteForceBlock::_databaseConnect();
 		
 		//setup response array
 		$response_array = array(
@@ -214,7 +214,7 @@ class BruteForceBlocker {
 	//clear the database
 	public static function clearDatabase(){
 		//get db connection
-		$db = BruteForceBlocker::_databaseConnect();
+		$db = BruteForceBlock::_databaseConnect();
 		
 		//attempt to delete all records
 		try{
