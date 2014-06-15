@@ -1,4 +1,4 @@
-BruteForceBlocker
+BruteForceBlock
 =================
 
 Automatic brute force attack prevention class with PHP. Stores all failed login attempts site-wide in a database and compares the
@@ -33,8 +33,8 @@ MIT License http://opensource.org/licenses/MIT
 			300 => 'captcha'	//captcha
 	];
 	
- 	$BFBresponse = BruteForceBlocker::getLoginStatus($throttle_settings);	
-	//$throttle_settings is an optional parameter. if it's not included, the default settings array in BruteForceBlocker.php will be used
+ 	$BFBresponse = BruteForceBlock::getLoginStatus($throttle_settings);	
+	//$throttle_settings is an optional parameter. if it's not included, the default settings array in BruteForceBlock.php will be used
 	switch ($BFBresponse['status']){
 		case 'safe':
 			//safe to login
@@ -55,14 +55,14 @@ MIT License http://opensource.org/licenses/MIT
 	
 	
 	== add a failed login attempt ==
-	$BFBresponse = BruteForceBlocker::addFailedLoginAttempt($user_id, $ip_address);
+	$BFBresponse = BruteForceBlock::addFailedLoginAttempt($user_id, $ip_address);
 	if($BFBresponse !== true){
 		//get error
 		$error_message = $BFBresponse;
 	}
 	
 	== clear the database ==
-	$BFBresponse = BruteForceBlocker::clearDatabase();
+	$BFBresponse = BruteForceBlock::clearDatabase();
 	if($BFBresponse !== true){
 		//get error
 		$error_message = $BFBresponse;
