@@ -13,6 +13,8 @@ MIT License http://opensource.org/licenses/MIT
 		1a. The 'auto_clear' option determines whether or not older database entries are cleared automatically
 	2) (optional) set default throttle settings in $default_throttle_settings_array
 	
+	NOTE: The throttle settings should be determined by the size and activity of your user base. The default settings should not be relied on.
+	
 	==================== To Create MySQL Database ====================
 	CREATE TABLE IF NOT EXISTS `user_failed_logins` (
 	  `id` int(11) NOT NULL AUTO_INCREMENT,
