@@ -80,6 +80,7 @@ if($BFBresponse !== true){
 	$error_message = $BFBresponse;
 }
 ```
+
 ###clear the database
 ```php
 $BFBresponse = ejfrancis\BruteForceBlock::clearDatabase();
