@@ -1,4 +1,5 @@
 <?php
+namespace ejfrancis;
 /**
  * 				Brute Force Block class
  *
