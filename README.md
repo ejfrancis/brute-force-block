@@ -9,6 +9,14 @@ Inspired by work of Corey Ballou, http://stackoverflow.com/questions/2090910/how
 
 MIT License http://opensource.org/licenses/MIT
 
+##Installation
+The recommended way to install is using composer, with the following require:
+
+`"ejfrancis/brute-force-block": "dev-master"`
+
+You can also download the classfile `BruteForceBlock.php` and include it manually.
+
+
 ##Setup
 1. setup database connection in `$_db` array.
   *  The `auto_clear` option determines whether or not older database entries are cleared automatically
@@ -43,7 +51,7 @@ $throttle_settings = [
 2.  get the login status. use this when building your login form
 
 ```php
-$BFBresponse = BruteForceBlock::getLoginStatus($throttle_settings);	
+$BFBresponse = ejfrancis\BruteForceBlock::getLoginStatus($throttle_settings);	
 
 switch ($BFBresponse['status']){
 	case 'safe':
@@ -66,7 +74,7 @@ switch ($BFBresponse['status']){
 
 ###add a failed login attempt
 ```php
-$BFBresponse = BruteForceBlock::addFailedLoginAttempt($user_id, $ip_address);
+$BFBresponse = ejfrancis\BruteForceBlock::addFailedLoginAttempt($user_id, $ip_address);
 if($BFBresponse !== true){
 	//get error
 	$error_message = $BFBresponse;
@@ -74,7 +82,7 @@ if($BFBresponse !== true){
 ```
 ###clear the database
 ```php
-$BFBresponse = BruteForceBlock::clearDatabase();
+$BFBresponse = ejfrancis\BruteForceBlock::clearDatabase();
 if($BFBresponse !== true){
 	//get error
 	$error_message = $BFBresponse;
