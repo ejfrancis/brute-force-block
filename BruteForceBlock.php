@@ -77,7 +77,7 @@ class BruteForceBlock {
 	//setup and return database connection
 	private static function _databaseConnect(){
 		//connect to database
-		$db = new PDO(self::$_db['driver'].
+		$db = new \PDO(self::$_db['driver'].
 			':host='.self::$_db['host'].
 			';dbname='.self::$_db['database'].
 			';charset='.self::$_db['charset'], 
