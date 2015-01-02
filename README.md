@@ -41,6 +41,7 @@ Use the included `user_failed_logins.sql` file or the following statement:
 1. build the throttle settings, based off your userbase's size and activity
 
 ```php
+//# failed login attempts => throttle action
 $throttle_settings = [
   50 => 2, 			//delay in seconds
   150 => 4, 			//delay in seconds
