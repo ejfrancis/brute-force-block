@@ -102,7 +102,7 @@ class BruteForceBlock {
 			$stmt = $db->query('INSERT INTO user_failed_logins SET user_id = '.$user_id.', ip_address = INET_ATON("'.$ip_address.'"), attempted_at = NOW()');
 			//$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			return true;
-		} catch(PDOException $ex){
+		} catch(\PDOException $ex){
 			//return errors
 			return $ex;
 		}
@@ -129,7 +129,7 @@ class BruteForceBlock {
 			$row = $stmt-> fetch();
 			//get latest attempt's timestamp
 			$latest_failed_attempt_datetime = (int) date('U', strtotime($row['attempted_at']));
-		} catch(PDOException $ex){
+		} catch(\PDOException $ex){
 			//return error
 			$response_array['status'] = 'error';
 			$response_array['message'] = $ex;
@@ -196,13 +196,13 @@ class BruteForceBlock {
 					$stmt = $db->query('DELETE from user_failed_logins WHERE attempted_at < DATE_SUB(NOW(), INTERVAL '.(self::$time_frame_minutes * 2).' MINUTE)');
 					$stmt->execute();
 					
-				} catch(PDOException $ex){
+				} catch(\PDOException $ex){
 					$response_array['status'] = 'error';
 					$response_array['message'] = $ex;
 				}
 			}
 			
-		} catch(PDOException $ex){
+		} catch(\PDOException $ex){
 			//return error
 			$response_array['status'] = 'error';
 			$response_array['message'] = $ex;
@@ -221,7 +221,7 @@ class BruteForceBlock {
 		try{
 			$stmt = $db->query('DELETE from user_failed_logins');
 			return true;
-		} catch(PDOException $ex){
+		} catch(\PDOException $ex){
 			//return errors
 			return $ex;
 		}
