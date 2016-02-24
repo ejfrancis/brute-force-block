@@ -18,7 +18,7 @@ You can also download the classfile `BruteForceBlock.php` and include it manuall
 
 
 ##Setup
-1. setup database connection in `$_db` array.
+1. Setup database connection in `$_db` array.
   *  The `auto_clear` option determines whether or not older database entries are cleared automatically
 2. (optional) set default throttle settings in `$default_throttle_settings_array`
 
@@ -38,7 +38,7 @@ Use the included `user_failed_logins.sql` file or the following statement:
 
 
 ##	Usage	 
-1. build the throttle settings, based off your userbase's size and activity
+1. Build the throttle settings, based off your userbase's size and activity
 
 ```php
 //# failed login attempts => throttle action
@@ -49,7 +49,7 @@ $throttle_settings = [
 ];
 ```
 
-2.  get the login status. use this when building your login form
+2.  Get the login status. Use this when building your login form
 
 ```php
 $BFBresponse = ejfrancis\BruteForceBlock::getLoginStatus($throttle_settings);	
@@ -73,7 +73,7 @@ switch ($BFBresponse['status']){
 }
 ```
 
-###add a failed login attempt
+###Add a failed login attempt
 ```php
 $BFBresponse = ejfrancis\BruteForceBlock::addFailedLoginAttempt($user_id, $ip_address);
 if($BFBresponse !== true){
@@ -82,7 +82,7 @@ if($BFBresponse !== true){
 }
 ```
 
-###clear the database
+###Clear the database
 ```php
 $BFBresponse = ejfrancis\BruteForceBlock::clearDatabase();
 if($BFBresponse !== true){
