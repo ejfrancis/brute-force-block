@@ -1,4 +1,4 @@
-#BruteForceBlock
+# BruteForceBlock
 
 Automatic brute force attack prevention class with PHP. Stores all failed login attempts site-wide in a database and compares the
 number of recent failed attempts against a set threshold. Responds with time delay between login requests and/or captcha requirement.
@@ -9,7 +9,7 @@ Inspired by work of Corey Ballou, http://stackoverflow.com/questions/2090910/how
 
 MIT License http://opensource.org/licenses/MIT
 
-##Installation
+## Installation
 The recommended way to install is using composer, with the following require:
 
 `"ejfrancis/brute-force-block": "dev-master"`
@@ -17,7 +17,7 @@ The recommended way to install is using composer, with the following require:
 You can also download the classfile `BruteForceBlock.php` and include it manually.
 
 
-##Setup
+## Setup
 1. Setup database connection in `$_db` array.
   *  The `auto_clear` option determines whether or not older database entries are cleared automatically
 2. (optional) set default throttle settings in `$default_throttle_settings_array`
@@ -73,7 +73,7 @@ switch ($BFBresponse['status']){
 }
 ```
 
-###Add a failed login attempt
+### Add a failed login attempt
 ```php
 $BFBresponse = ejfrancis\BruteForceBlock::addFailedLoginAttempt($user_id, $ip_address);
 if($BFBresponse !== true){
@@ -82,7 +82,7 @@ if($BFBresponse !== true){
 }
 ```
 
-###Clear the database
+### Clear the database
 ```php
 $BFBresponse = ejfrancis\BruteForceBlock::clearDatabase();
 if($BFBresponse !== true){
